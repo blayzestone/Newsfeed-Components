@@ -54,7 +54,14 @@ function menuCreator(array) {
 
   menu.appendChild(menuItemList);
 
-  menuButton.addEventListener('click', e => menu.classList.toggle('menu--open'));
+  menuButton.addEventListener('click', e => {
+    menu.classList.toggle('menu--open')
+
+    gsap.from(".menu", {
+      x: -350,
+      duration: 0.33
+    });
+  });
 
   return menu;
 }
