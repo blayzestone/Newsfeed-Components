@@ -146,7 +146,23 @@ function articleCreator({title, date, firstParagraph, secondParagraph, thirdPara
 
   article.appendChild(articleExpandButton);
 
-  articleExpandButton.addEventListener('click', event => article.classList.toggle('article-open'));
+  articleExpandButton.addEventListener('click', event => {
+    
+    // animation effect on the paragraphs when article is expanding.
+    paragraphElements.forEach((paragraphElement, index) => {
+      paragraphElement.style.opacity = 0;
+
+      gsap.delayedCall(index * 0.6, () => {
+        gsap.to(paragraphElement, {
+          opacity: 1,
+          duration: 1
+        });
+      });
+    });
+
+    // expand the article
+    return article.classList.toggle('article-open')
+  });
 
   return article;
 }

@@ -57,7 +57,7 @@ function menuCreator(array) {
   menuButton.addEventListener('click', e => {
     menu.classList.toggle('menu--open')
 
-    gsap.from(".menu", {
+    gsap.from(menu, {
       x: -350,
       duration: 0.33
     });
